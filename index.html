@@ -1,44 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-    <title>Listeners</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ToDo</title>
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-    <main>
-        <div class="controls">
-            <button id="btn">Button</button>
-        </div>
+	<header class="header">
+		<form class="todo-control">
+			<label><input class="header-input" type="text" placeholder="Какие планы?"></label>
+			<button class="header-button" id="add" type="submit"></button>
+		</form>
+	</header>
 
-        <div class="controls">
-            <input type="range" id="range">
-            <span id="range-span">0</span>
-        </div>
+	<div class="todo-container">
 
-        <div class="controls">
-            <input type="text" id="text">
-            <span id="text-span"></span>
-        </div>
+		<ul class="todo todo-list" id="todo">
+			
+		</ul>
+		<ul class="todo todo-completed" id="completed">
+			
+		</ul>
+	</div>
 
-        <div class="controls">
-            <a href="https://www.google.ru/">Google</a>
-        </div>
-
-        <div class="controls">
-            <div id="square">
-                <div id="circle">
-                    <button id="e_btn">Жмяк</button>
-                </div>
-            </div>
-        </div>
-    </main>
 
 </body>
 
