@@ -1,22 +1,51 @@
 'use strict';
 
-const btn = document.getElementById('btn');
-const inputText = document.getElementById('text');
-const inputRange = document.getElementById('range');
-const square = document.getElementById('square');
-const circle = document.getElementById('circle');
-const circleBtn = document.getElementById('e_btn');
+class Worker {
+  constructor(name, surName, age, isChildren) {
+    this.name = name;
+    this.surName = surName;
+    this.age = age;
+    this.isChildren = isChildren;
+  }
+}
 
-circleBtn.style.display = 'none';
+class Driver extends Worker {
+  constructor(
+    name,
+    surName,
+    age,
+    isChildren,
+    isLicenses = true,
+    category,
+    experience,
+    position = 'Driver'
+  ) {
+    super(name, surName, age, isChildren);
+    this.category = category;
+    this.isLicenses = isLicenses;
+    this.experience = experience;
+    this.position = position;
+  }
+}
+class Mechanic extends Worker {
+  constructor(
+    name,
+    surName,
+    age,
+    isChildren,
+    category,
+    isLicenses = false,
+    experience,
+    position = 'Mechanic'
+  ) {
+    super(name, surName, age, isChildren);
+    this.category = category;
+    this.isLicenses = isLicenses;
+    this.experience = experience;
+    this.position = position;
+  }
+}
 
-const bgColor = function () {
-  square.style.backgroundColor = inputText.value;
-};
+const driver = new Driver();
 
-const changeCircleSize = function (event) {
-  circle.style.width = event.target.value + '%';
-  circle.style.height = event.target.value + '%';
-};
-
-btn.addEventListener('click', bgColor);
-inputRange.addEventListener('input', changeCircleSize);
+console.log(driver);
