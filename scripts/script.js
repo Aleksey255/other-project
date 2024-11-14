@@ -17,8 +17,13 @@ const sendData = (url, data) => {
 };
 
 getData('db.json').then((data) => {
-  sendData(
-    'https://jsonplaceholder.typicode.com/posts',
-    JSON.stringify(data)
-  ).then((data) => console.log(data));
+  let xhr = new XMLHttpRequest();
+
+  let json = JSON.stringify(data);
+
+  xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+  xhr.send(json);
 });
