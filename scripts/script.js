@@ -10,7 +10,7 @@ const speciesArray = [];
 const speciesUniqueArray = [];
 
 filterFilms.id = 'filter-films';
-filterFilms.style.marginRight = '10px'
+filterFilms.style.marginRight = '10px';
 movieOptionAll.value = 'all';
 movieOptionAll.innerHTML = 'Все фильмы';
 filterSpecies.id = 'filter-species';
@@ -117,7 +117,7 @@ const renderHeroes = (heroes) => {
 const renderMovieFilter = () => {
   movieUniqueArray.forEach((item) => {
     const movieOption = document.createElement('option');
-    movieOption.value = `${item}`;
+    movieOption.value = item;
     movieOption.innerHTML = item;
     filterFilms.append(movieOption);
   });
@@ -138,11 +138,24 @@ const movieFilter = (movies) => {
   });
 };
 
+const filterHeroesByMovie = (movieName, data) => {
+  const filteredHeroes = data.filter((hero) => {
+    if (movieName === 'all') {
+      return true;
+    }
+    if (Array.isArray(hero.movies)) {
+      return hero.movies.includes(movieName);
+    }
+    return false;
+  });
+  return filteredHeroes;
+};
+
 const renderSpeciesFilter = () => {
   speciesUniqueArray.forEach((item) => {
-    if (item != undefined) {
+    if (item !== undefined) {
       const option = document.createElement('option');
-      option.value = `${item}`;
+      option.value = item;
       option.innerHTML = item;
       filterSpecies.append(option);
     }
@@ -160,6 +173,16 @@ const speciesFilter = (species) => {
   });
 };
 
+const filterHeroesBySpecies = (species, data) => {
+  const filteredHeroes = data.filter((hero) => {
+    if (species === 'all') {
+      return true;
+    }
+    return hero.species === species;
+  });
+  return filteredHeroes;
+};
+
 getData('dbHeroes.json').then((data) => {
   renderHeroes(data);
   movieFilter(data);
@@ -167,39 +190,16 @@ getData('dbHeroes.json').then((data) => {
   renderMovieFilter();
   renderSpeciesFilter();
 
-  const filterHeroesByMovie = (movieName) => {
-    const filteredHeroes = data.filter((hero) => {
-      if (movieName === 'all') {
-        return true;
-      }
-      if (Array.isArray(hero.movies)) {
-        return hero.movies.includes(movieName);
-      }
-      return false;
-    });
-    return filteredHeroes;
-  };
-
-  const filterHeroesBySpecies = (species) => {
-    const filteredHeroes = data.filter((hero) => {
-      if (species === 'all') {
-        return true;
-      }
-      return hero.species === species;
-    });
-    return filteredHeroes;
-  };
-
   filterFilms.addEventListener('change', (e) => {
     const selectedFilter = e.target.value;
-    const filteredHeroesMovie = filterHeroesByMovie(selectedFilter);
+    const filteredHeroesMovie = filterHeroesByMovie(selectedFilter, data);
 
     renderHeroes(filteredHeroesMovie);
   });
   filterSpecies.addEventListener('change', (e) => {
     const selectedFilter = e.target.value;
 
-    const filteredHeroesSpecies = filterHeroesBySpecies(selectedFilter);
+    const filteredHeroesSpecies = filterHeroesBySpecies(selectedFilter, data);
 
     renderHeroes(filteredHeroesSpecies);
   });
