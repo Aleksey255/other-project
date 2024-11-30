@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
     <title>Listeners</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <main>
-        <div class="controls">
-            <button id="btn">Button</button>
+      <div class="container">
+        <div class="form">
+          <select name="position" id="position">
+            <option value selected>Position</option>
+            <option value="driver">Driver</option>
+            <option value="mechanic">Mechanic</option>
+          </select>
+          <input class="form__input" id="name" placeholder="Name" type="text" />
+          <input class="form__input" id="surname" placeholder="Surname" type="text" />
+          <input class="form__input" id="age" placeholder="Age" type="number" />
+          <input class="form__input" id="category" placeholder="Category" type="text" />
+          <input class="form__input" id="experience" placeholder="Experience" type="text" />
+          <div class="main-controls__checkbox">
+            <input class="custom-checkbox" id="checkbox-1" type="checkbox" />
+            <label for="checkbox-1">Child presence</label>
+          </div>
+          <div class="main-controls__checkbox">
+            <input class="custom-checkbox" id="checkbox-2" type="checkbox" />
+            <label for="checkbox-2">Licenses</label>
+          </div>
+          <button class="save">Save</button>
         </div>
-
-        <div class="controls">
-            <input type="range" id="range">
-            <span id="range-span">0</span>
-        </div>
-
-        <div class="controls">
-            <input type="text" id="text">
-            <span id="text-span"></span>
-        </div>
-
-        <div class="controls">
-            <a href="https://www.google.ru/">Google</a>
-        </div>
-
-        <div class="controls">
-            <div id="square">
-                <div id="circle">
-                    <button id="e_btn">Жмяк</button>
-                </div>
-            </div>
-        </div>
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Age</th>
+              <th>Child presence</th>
+              <th>Licenses</th>
+              <th>Position</th>
+              <th>Category</th>
+              <th>Experience</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <!-- <tr>
+            <td>Данные 1</td>
+            <td>Данные 2</td>
+            <td><button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Данные 3</td>
+            <td>Данные 4</td>
+            <td><button>Delete</button></td>
+          </tr> -->
+        </table>
+      </div>
     </main>
-
-</body>
-
+  </body>
 </html>
