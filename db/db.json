@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "name": "Mark",
+      "email": "otto@gmail.com",
+      "children": true,
+      "permissions": false,
+      "id": 1
+    },
+    {
+      "name": "Jacob",
+      "email": "thornton@gmail.com",
+      "children": false,
+      "permissions": true,
+      "id": 2
+    },
+    {
+      "name": "Alex",
+      "email": "A@A",
+      "children": true,
+      "permissions": false,
+      "id": 3
+    },
+    {
+      "name": "Alex2",
+      "email": "a@a",
+      "children": false,
+      "permissions": true,
+      "id": 4
+    }
+  ]
+}
